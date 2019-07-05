@@ -24,8 +24,8 @@
 	echo "DNSCHECK version 0.1 ¯\_(@_@)_/¯"
 	exit 1;;
 	*)
-	echo "ERROR: Incorrect options provided
-	Usage: dnscheck [OPTION...]
+	echo "ERROR: Incorrect options provided"
+	echo "Usage: dnscheck [OPTION...]
 	  -d         dns-server ip or hostname
 	  -n         domain-name or ip address
 	  -s         sleep interval in seconds
@@ -37,8 +37,8 @@
 
 	if [ -z $domain ];
 	then
-	echo "ERROR: No domain detected. DNSCHECK stopped.
-	Usage: dnscheck [OPTION...]
+	echo "ERROR: No domain detected. DNSCHECK stopped."
+	echo "Usage: dnscheck [OPTION...]
 	  -d         dns-server ip or hostname
 	  -n         domain-name or ip address
 	  -s         sleep interval in seconds
