@@ -1,8 +1,7 @@
 	domain=''
 	sleepc=''
 	dns=''
-	dnsip=`nslookup localhost | grep Server | cut -b '8-20'`
-
+	
 	if [ -z "$*" ];
 	then
 	echo "Usage: dnscheck [OPTION...]
