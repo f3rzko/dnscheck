@@ -26,7 +26,7 @@
                 s)
                 sleepc=$OPTARG;;
                 v)
-                echo "DNSCHECK version 0.5"
+                echo "DNSCHECK version 0.99 beta, l0l"
                 exit 1;;
                 *)
                 echo "Incorrect options provided. DNSCHECK script was stopped!"
