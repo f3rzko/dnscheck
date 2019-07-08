@@ -91,10 +91,10 @@ echo "$tcount requests was sent, $scount times domain was resolved and $ecount u
                 while [ "1" = "1" ]; do
                                 if [ "$ip" = "" ]; then
                                 echo `date +"%Y-%m-%d %R:%S"` "| DNSCHECK | ERROR: DNS server" $dnsip "can't find" $domain ;
-                                ecount=$((ecount + "1"))
+                                ecount=$((ecount + 1))
                                 else
                                 echo `date +"%Y-%m-%d %R:%S"` "| DNSCHECK | SUCCESS: DNS server" $dnsip "converts" $domain "to IP" $ip ;
-                                scount=$((scount + "1"))
+                                scount=$((scount + 1))
                                 fi
 tcount=$((scount + ecount))
                                 if [ "$sleepc" = "" ]; then
