@@ -4,6 +4,8 @@
                 dnsip=`nslookup localhost | grep Server | cut -b '8-20'`
                 CKIP=''
                 CKdmn=''
+                scount='0'
+                ecount='0'
 
                 if [ -z "$*" ];
                 then
@@ -52,6 +54,8 @@
 trap ctrl_c INT
 function ctrl_c() {
         echo `date +"%Y-%m-%d %R:%S"` "| DNSCHECK | INFO: DNSCHECK script was stopped manually."
+echo "--- DNSCHECK statistics for $domain ---"
+echo "$tcount requests was sent, $scount times domain was resolved and $ecount unresolved by DNS Server: $dnsip"
                 exit 1
 }
 
@@ -80,17 +84,26 @@ function ctrl_c() {
                 exit 1
                 fi
 
+
+
+
+
                 while [ "1" = "1" ]; do
                                 if [ "$ip" = "" ]; then
                                 echo `date +"%Y-%m-%d %R:%S"` "| DNSCHECK | ERROR: DNS server" $dnsip "can't find" $domain ;
+                                ecount=$((ecount + "1"))
                                 else
                                 echo `date +"%Y-%m-%d %R:%S"` "| DNSCHECK | SUCCESS: DNS server" $dnsip "converts" $domain "to IP" $ip ;
+                                scount=$((scount + "1"))
                                 fi
+tcount=$((scount + ecount))
                                 if [ "$sleepc" = "" ]; then
                                 a="0"
                                 else
                                 a="1"
                                 sleep $sleepc
                                 fi
+
+
 done
 exit 0
